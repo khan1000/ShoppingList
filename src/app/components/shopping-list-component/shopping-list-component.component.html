@@ -1,31 +1,40 @@
 <h1>Shopping List</h1>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <div class="container">
-<div class="row">
-<div class="col-sm">
-<div id="cunrrent list" class="list">
-<input type="text" id="currentListInput" placeholder="Title...">
-  <button onclick="newCurrentElement()" class="addBtn">Add</button>
-<ul id="">
-  <li *ngFor="let currentList of currentlist"> <span>{{currentList.ItemName}}</span>
-</ul>
-</div>
-</div>
+  <div class="row">
+    <div class="col-sm">
+      <div id="cunrrent list" class="list">
+        <input type="text" id="currentListInput" placeholder="Title..." [(ngModel)]="itemname">
+        <button (click)="addToCurrentList()" class="addBtn">Add</button>
+        <ul id="currentList">
+          <li *ngFor="let currentList of currentlist"> <span>{{currentList.ItemName}}</span>
+        </ul>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="row">
+      <button id="move-right" class="btn btn-success btn-lg"> >></button>
+      </div>
+      <div class="row">
+      <button id="move-left" class="btn btn-success btn-lg"><<</button>
+    </div>
+    </div>
 
-<div class="col-sm">
-<div id="previous list" class="list">
-<input type="text" id="PerviousListInput" placeholder="Title...">
-  <button onclick="newElement()" class="btn btn-success">Add</button>
-<ul id="">
-  <li>Hit the gym</li>
-  <li class="checked">Pay bills</li>
-  <li>Meet George</li>
-  <li>Buy eggs</li>
-  <li>Read a book</li>
-  <li>Organize office</li>
-</ul>
+    <div class="col-sm">
+      <div id="previous list" class="list">
+        <input type="text" id="PerviousListInput" placeholder="Title...">
+        <button onclick="newElement()" class="btn btn-success">Add</button>
+        <ul id="PreviousList">
+          <li>Hit the gym</li>
+          <li class="checked">Pay bills</li>
+          <li>Meet George</li>
+          <li>Buy eggs</li>
+          <li>Read a book</li>
+          <li>Organize office</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-
