@@ -6,10 +6,10 @@
   <div class="row">
     <div class="col-sm">
       <div id="cunrrent list" class="list">
-        <input type="text" id="currentListInput" placeholder="Title..." [(ngModel)]="itemname">
+        <input type="text" id="currentListInput" placeholder="Title..." [(ngModel)]="currentItemInput">
         <button (click)="addToCurrentList()" class="addBtn">Add</button>
         <ul id="currentList">
-          <li *ngFor="let currentList of currentlist"> <span>{{currentList.ItemName}}</span>
+          <li *ngFor="let c of currentlist"> <span>{{c.ItemName}}</span>
         </ul>
       </div>
     </div>
@@ -24,15 +24,10 @@
 
     <div class="col-sm">
       <div id="previous list" class="list">
-        <input type="text" id="PerviousListInput" placeholder="Title...">
-        <button onclick="newElement()" class="btn btn-success">Add</button>
+        <input type="text" id="PerviousListInput" placeholder="Title..." [(ngModel)]="previousItemInput">
+        <button (click)="addToPreviousList" class="btn btn-success">Add</button>
         <ul id="PreviousList">
-          <li>Hit the gym</li>
-          <li class="checked">Pay bills</li>
-          <li>Meet George</li>
-          <li>Buy eggs</li>
-          <li>Read a book</li>
-          <li>Organize office</li>
+          <li *ngFor="let p of previouslist"> <span>{{p.ItemName}}</span>
         </ul>
       </div>
     </div>

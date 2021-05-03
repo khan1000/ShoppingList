@@ -12,16 +12,24 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class ShoppingListComponentComponent implements OnInit {
 
-  currentlist = ListItems;
-  itemname: string;
+  currentlist = [];
+  previouslist = ListItems;
+  currentItemInput: string;
+  previousItemInput: string;
+
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  addToCurrentList()
-  {
-    this.currentlist.push({ItemID: 34 , ItemName: this.itemname , ListID: 0 , HighPriority: false , Index:0});
+  addToCurrentList(): void {
+    this.currentlist.push({ItemID: 34 , ItemName: this.currentItemInput , ListID: 0 , HighPriority: false , Index:0});
+
+  }
+
+  addToPreviousList(): void {
+    this.currentlist.push({ItemID: 34 , ItemName: this.previousItemInput , ListID: 1 , HighPriority: false , Index:0});
 
   }
 
