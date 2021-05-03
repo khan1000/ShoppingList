@@ -1,21 +1,22 @@
 <h1>Shopping List</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<div class="container">
 <div class="row">
-<div id="cunrrent list" class="list"></div>
+<div class="col-sm">
+<div id="cunrrent list" class="list">
 <input type="text" id="currentListInput" placeholder="Title...">
-  <span onclick="newElement()" class="addBtn">Add</span>
+  <button onclick="newCurrentElement()" class="addBtn">Add</button>
 <ul id="">
-  <li>chichken</li>
-  <li class="checked">spinch</li>
-  <li>sweets</li>
-  <li>pizza</li>
-  <li>icecream</li>
-  <li>Organize office</li>
+  <li *ngFor="let currentList of currentlist"> <span>{{currentList.ItemName}}</span>
 </ul>
+</div>
+</div>
 
-<div id="previous list" class="list"></div>
+<div class="col-sm">
+<div id="previous list" class="list">
 <input type="text" id="PerviousListInput" placeholder="Title...">
-  <span onclick="newElement()" class="addBtn">Add</span>
+  <button onclick="newElement()" class="btn btn-success">Add</button>
 <ul id="">
   <li>Hit the gym</li>
   <li class="checked">Pay bills</li>
@@ -24,5 +25,7 @@
   <li>Read a book</li>
   <li>Organize office</li>
 </ul>
-
 </div>
+</div>
+</div>
+
