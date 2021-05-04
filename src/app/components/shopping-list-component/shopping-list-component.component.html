@@ -1,21 +1,37 @@
 <h1>Shopping List</h1>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <div id="cunrrent list" class="list">
-        <input type="text" id="currentListInput" placeholder="Title..." [(ngModel)]="currentItemInput">
-        <button (click)="addToCurrentList()" class="addBtn">Add</button>
-        <ul id="currentList">
-          <li *ngFor="let c of currentlist"> <span>{{c.ItemName}}</span>
+
+      <div class="input-group mb-3">
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Item..." aria-describedby="basic-addon2" [(ngModel)]="currentItemInput">
+          <div class="input-group-append">
+            <button (click)="addToCurrentList()" class="btn btn-outline-secondary" type="button">Add</button>
+          </div>
+        </div>
+        <ul id="currentList" class="list-group" >
+          <li *ngFor="let c of currentlist" class="list-group-item">
+          <span>{{c.ItemName}}</span>
+          <span (click)="onEditCurrentList(c.ItemName)" class="material-icons">edit</span>
+          <span (click)="onDeleteCurrentList(c.ItemName)" class="material-icons">clear</span>
+
+          </li>
         </ul>
+
       </div>
     </div>
     <div class="col-2">
       <div class="row">
-      <button id="move-right" class="btn btn-success btn-lg"> >></button>
+      <button id="move-right" class="btn btn-success btn-lg">>></button>
       </div>
       <div class="row">
       <button id="move-left" class="btn btn-success btn-lg"><<</button>
@@ -23,13 +39,21 @@
     </div>
 
     <div class="col-sm">
-      <div id="previous list" class="list">
-        <input type="text" id="PerviousListInput" placeholder="Title..." [(ngModel)]="previousItemInput">
-        <button (click)="addToPreviousList" class="btn btn-success">Add</button>
-        <ul id="PreviousList">
-          <li *ngFor="let p of previouslist"> <span>{{p.ItemName}}</span>
-        </ul>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Item..." aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="previousItemInput">
+        <div class="input-group-append">
+          <button (click)="addToPreviousList()" class="btn btn-outline-secondary" type="button">Add</button>
+        </div>
       </div>
+      <ul id="PreviousList" class="list-group" >
+        <li *ngFor="let p of previouslist" class="list-group-item">
+        <span>{{p.ItemName}}</span>
+        <span (click)="onEditPreviousList(p.ItemName)" class="material-icons">edit</span>
+        <span (click)="onDeletePreviousList(p.ItemName)" class="material-icons">clear</span>
+      </li>
+      </ul>
+
     </div>
   </div>
 </div>
